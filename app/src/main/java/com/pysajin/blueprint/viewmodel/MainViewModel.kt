@@ -49,7 +49,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
 
     private fun insertItem(item: ItemList) {
         compositeDisposable.add(
-            repository.insertUersItem(item)
+            repository.insertUserItem(item)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

@@ -14,7 +14,7 @@ class ItemListRepository(application: Application) {
         itemListDao = itemListDatabase.itemDao()
     }
 
-    fun insertUersItem(item: ItemList): Completable {
+    fun insertUserItem(item: ItemList): Completable {
         return itemListDao.insert(item)
     }
 
