@@ -6,6 +6,10 @@ dependencies {
     implementation rootProject.ext.dependencies.core_ktx
     implementation rootProject.ext.dependencies.constraintlayout
 
+    implementation rootProject.ext.dependencies.recyclerview
+    implementation rootProject.ext.dependencies.rxjava
+    implementation rootProject.ext.dependencies.rxandroid
+    implementation rootProject.ext.dependencies.room
     implementation rootProject.ext.dependencies.glide
 
     testImplementation "junit:junit:4.12"

@@ -1,9 +1,10 @@
-package com.pysajin.blueprint
+package com.pysajin.blueprint.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.pysajin.blueprint.R
 
-class MainActivity : AppCompatActivity() {
+class MapActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

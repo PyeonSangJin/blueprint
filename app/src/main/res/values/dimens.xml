@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="global_top_to_contents">50dp</dimen>
+
+    <dimen name="d_4">4dp</dimen>
+    <dimen name="d_16">16dp</dimen>
+</resources>
