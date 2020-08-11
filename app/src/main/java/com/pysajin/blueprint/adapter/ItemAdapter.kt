@@ -1,5 +1,6 @@
 package com.pysajin.blueprint.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -16,8 +17,10 @@ class ItemAdapter(val layoutId: Int, val mMainViewModel: MainViewModel) : Recycl
     }
 
     override fun getItemCount() =
-        if (mMainViewModel.itemList.value != null)
+        if (mMainViewModel.itemList.value != null) {
+            Log.e("ERRR", "test : ${mMainViewModel.itemList.value!!.size}")
             mMainViewModel.itemList.value!!.size
+        }
         else 0
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
@@ -28,7 +31,7 @@ class ItemAdapter(val layoutId: Int, val mMainViewModel: MainViewModel) : Recycl
 
     private fun getLayoutIdForPosition(): Int = layoutId
 
-    class Holder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.recentSearchText) {
+    class Holder(val binding: ItemListBinding) : RecyclerView.ViewHolder(binding.itemLists) {
         fun bind(mMainViewModel: MainViewModel, position: Int) {
             binding.mainVM = mMainViewModel
             binding.position = position

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <import type="com.pysajin.blueprint.viewmodel.MainViewModel"/>
@@ -8,14 +9,12 @@
     </data>
 
     <RelativeLayout
+            android:id="@+id/itemLists"
             android:background="@color/white"
-            android:id="@+id/recentSearchText"
             android:layout_width="match_parent"
             android:layout_height="@dimen/global_top_to_contents"
             android:layout_marginTop="@dimen/d_4"
-            android:onClick="@{()->mainVM.gotoMapPage(position)}"
             android:orientation="horizontal">
-
         <TextView
                 android:id="@+id/tvItemTitle"
                 style="@style/TitleBigLine"
@@ -30,6 +29,7 @@
                 android:layout_marginEnd="@dimen/d_16"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{mainVM.getItem(position).title}"/>
+                android:text="@{mainVM.getItem(position).title}"
+                tools:text="testestest"/>
     </RelativeLayout>
 </layout>
