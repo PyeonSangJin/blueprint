@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: 'dependencies-app.gradle'
+
 
 android {
     compileSdkVersion 29
@@ -27,5 +29,8 @@ android {
 
     dataBinding {
         enabled = true
+    }
+    kapt {
+        correctErrorTypes true
     }
 }

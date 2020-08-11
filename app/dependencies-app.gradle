@@ -9,7 +9,11 @@ dependencies {
     implementation rootProject.ext.dependencies.recyclerview
     implementation rootProject.ext.dependencies.rxjava
     implementation rootProject.ext.dependencies.rxandroid
+    implementation rootProject.ext.dependencies.lifecycle
+
     implementation rootProject.ext.dependencies.room
+    kapt rootProject.ext.dependencies.room_kapt
+
     implementation rootProject.ext.dependencies.glide
 
     testImplementation "junit:junit:4.12"

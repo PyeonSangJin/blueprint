@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">blueprint</string>
+    <string name="select_blueprint">도면 선택</string>
 </resources>

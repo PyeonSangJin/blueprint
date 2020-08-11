@@ -7,8 +7,9 @@ ext {
 
     recycler_version = '1.1.0'
 
-    rxandoird_version = '3.0.0'
-    rxjava_version = '3.0.5'
+    rxandoird_version = '2.1.1'
+    rxjava_version = '2.2.8'
+    lifecycle_version = '2.2.0'
 
     room_version = '2.2.5'
     glide_version = '4.10.0'
@@ -23,9 +24,15 @@ ext.dependencies = [
         constraintlayout : "androidx.constraintlayout:constraintlayout:$constraint_layout_version",
 
         recyclerview : "androidx.recyclerview:recyclerview:$recycler_version",
-        rxandroid : "io.reactivex.rxjava3:rxandroid:$rxandoird_version",
-        rxjava : "io.reactivex.rxjava3:rxjava:$rxjava_version",
-        room: "androidx.room:room-ktx:$room_version",
+        rxandroid : "io.reactivex.rxjava2:rxandroid:$rxandoird_version",
+        rxjava : "io.reactivex.rxjava2:rxjava:$rxjava_version",
+        lifecycle : "androidx.lifecycle:lifecycle-extensions:$lifecycle_version",
+        room: "androidx.room:room-rxjava2:$room_version",
+        room_kapt: "androidx.room:room-compiler:$room_version",
 
         glide : "com.github.bumptech.glide:glide:$glide_version"
+]
+
+ext.room = [
+
 ]

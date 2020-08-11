@@ -12,7 +12,7 @@ abstract class BaseViewModel protected constructor(application: Application) : A
     val infoActivity = MutableLiveData<Int>()
 
     protected val repository = ItemListRepository(application)
-    val itemListBase = ArrayList<ItemList>()
+    val itemListBase = arrayOf<ItemList>()
 
     fun goMainPage(){
         if(infoActivity.value != ActivityPos.MAIN.pos)

@@ -6,15 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import com.pysajin.blueprint.R
 import com.pysajin.blueprint.adapter.ItemAdapter
 import com.pysajin.blueprint.model.ItemList
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 
 class MainViewModel(application: Application) : BaseViewModel(application) {
     private val compositeDisposable = CompositeDisposable()
     val itemAdapter = ItemAdapter(R.layout.item_list, this)
-    var itemList = MutableLiveData<ArrayList<ItemList>>()
+    var itemList = MutableLiveData<Array<ItemList>>()
 
     init {
         itemList.value = itemListBase
@@ -54,8 +54,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     {
-                        itemList.value!!.add(item)
-                        itemAdapter.notifyDataSetChanged()
+                        getItemList()
                     },
                     {
                         Log.e("insertItemError :", it.toString())
