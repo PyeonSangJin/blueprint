@@ -13,6 +13,7 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:setItemAdapter="@{mainVM.itemAdapter}"
+            android:setHelper="@{mainVM.helper}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
     </androidx.recyclerview.widget.RecyclerView>
 

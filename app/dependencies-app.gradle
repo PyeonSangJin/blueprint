@@ -7,6 +7,8 @@ dependencies {
     implementation rootProject.ext.dependencies.constraintlayout
 
     implementation rootProject.ext.dependencies.recyclerview
+    implementation rootProject.ext.dependencies.cardview
+
     implementation rootProject.ext.dependencies.rxjava
     implementation rootProject.ext.dependencies.rxandroid
     implementation rootProject.ext.dependencies.lifecycle

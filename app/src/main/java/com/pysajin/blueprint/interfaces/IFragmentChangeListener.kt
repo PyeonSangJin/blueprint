@@ -1,4 +1,4 @@
-package com.pysajin.blueprint.ui
+package com.pysajin.blueprint.interfaces
 
 interface IFragmentChangeListener {
     fun moveMainPage()

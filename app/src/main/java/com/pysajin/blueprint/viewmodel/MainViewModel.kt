@@ -3,22 +3,27 @@ package com.pysajin.blueprint.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.pysajin.blueprint.R
 import com.pysajin.blueprint.adapter.ItemAdapter
+import com.pysajin.blueprint.interfaces.ItemTouchHelperCallback
 import com.pysajin.blueprint.model.ItemList
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
+
+
 class MainViewModel(application: Application) : BaseViewModel(application) {
     private val compositeDisposable = CompositeDisposable()
 
-    var itemAdapter = ItemAdapter(R.layout.item_list, this)
-        private set
+    val itemAdapter = ItemAdapter(R.layout.item_list, this)
+    val helper: ItemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(itemAdapter, application.applicationContext))
     var itemList = MutableLiveData<Array<ItemList>>()
 
     init {
+
         itemList.value = itemListBase
         getItemList()
 
@@ -33,9 +38,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
             ItemList(1, "8", "333"),
             ItemList(1, "9", "333"),
             ItemList(1, "10", "333")
-        );
-
-        itemAdapter.notifyDataSetChanged()
+        )
     }
 
     fun gotoMapPage(position: Int) {

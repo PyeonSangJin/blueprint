@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.pysajin.blueprint.BR
 import com.pysajin.blueprint.R
-import com.pysajin.blueprint.ui.IFragmentChangeListener
+import com.pysajin.blueprint.interfaces.IFragmentChangeListener
 import com.pysajin.blueprint.viewmodel.MainViewModel
 import com.pysajin.blueprint.databinding.FragmentMainBinding
 

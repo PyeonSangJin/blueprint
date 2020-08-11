@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">blueprint</string>
     <string name="select_blueprint">도면 선택</string>
+    <string name="delete">삭제</string>
+    <string name="update">수정</string>
 </resources>

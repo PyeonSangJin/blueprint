@@ -1,7 +1,7 @@
 package com.pysajin.blueprint
 
-import android.util.Log
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pysajin.blueprint.adapter.ItemAdapter
@@ -10,8 +10,13 @@ import com.pysajin.blueprint.adapter.ItemAdapter
 fun RecyclerView.gg(adapter: RecyclerView.Adapter<ItemAdapter.Holder>) {
     this.setHasFixedSize(true)
     val mLayoutManager = LinearLayoutManager(this.context)
-    mLayoutManager.reverseLayout = true;
-    mLayoutManager.stackFromEnd = true;
+    mLayoutManager.reverseLayout = true
+    mLayoutManager.stackFromEnd = true
     this.layoutManager = mLayoutManager
     this.adapter = adapter
+}
+
+@BindingAdapter("android:setHelper")
+fun RecyclerView.hh(helper: ItemTouchHelper) {
+    helper.attachToRecyclerView(this)
 }

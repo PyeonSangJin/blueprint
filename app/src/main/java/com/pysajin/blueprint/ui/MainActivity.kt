@@ -1,7 +1,6 @@
 package com.pysajin.blueprint.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -39,7 +38,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun replaceFragment(fragment: Fragment) {
         fragmentManager.popBackStack()
         transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer, fragment).commitAllowingStateLoss();
+        transaction.replace(R.id.fragmentContainer, fragment).commitAllowingStateLoss()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +48,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         fragmentManager = supportFragmentManager
         transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer, MainFragment()).addToBackStack("MMAIN").commit()
+        transaction.replace(R.id.fragmentContainer, MainFragment()).addToBackStack("MAIN").commit()
 
         viewModel.getItemList()
 
