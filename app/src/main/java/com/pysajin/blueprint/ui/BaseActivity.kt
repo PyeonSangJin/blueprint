@@ -31,6 +31,7 @@ abstract class BaseActivity<B : ViewDataBinding>(private val layoutId: Int) : Ap
             ActivityPos.MAP.pos -> {
                 intent = Intent(this, MapActivity::class.java)
                 //intent에 데이터 넣어서 넘기면 됨
+                intent.putExtra("datas", data)
                 startActivity(intent)
                 finish()
             }

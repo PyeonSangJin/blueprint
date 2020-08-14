@@ -55,7 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         this.viewModel.infoActivity.observe(this, Observer {
             Log.e("Test","MainActivity의 observer setting부분 $it")
-            changeActivity(1)
+            changeActivity(it, data = this.viewModel.selectedItem)
         })
 
         this.viewModel.itemList.observe(this, Observer {

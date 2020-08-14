@@ -33,4 +33,6 @@ android {
     kapt {
         correctErrorTypes true
     }
+    //for Parcelize
+    androidExtensions { experimental = true }
 }

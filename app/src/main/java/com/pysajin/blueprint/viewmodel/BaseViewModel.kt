@@ -11,6 +11,7 @@ abstract class BaseViewModel protected constructor(application: Application) : A
     enum class ActivityPos(val pos:Int){MAIN(0), MAP(1)}
 
     val infoActivity = MutableLiveData<Int>()
+    var selectedItem: ItemList? = null
 
     protected val repository = ItemListRepository(application)
     val itemListBase = arrayOf<ItemList>()
@@ -20,10 +21,12 @@ abstract class BaseViewModel protected constructor(application: Application) : A
             infoActivity.value = ActivityPos.MAIN.pos
     }
 
-    fun goMapPage(){
+    fun goMapPage(selected : ItemList){
         Log.e("TEST","BaseViewModel의 goMapPage")
-        if(infoActivity.value != ActivityPos.MAP.pos)
+        if(infoActivity.value != ActivityPos.MAP.pos) {
+            selectedItem = selected
             infoActivity.value = ActivityPos.MAP.pos
+        }
     }
 
 }
