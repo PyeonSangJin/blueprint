@@ -39,7 +39,8 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
     }
 
     fun gotoMapPage(position: Int) {
-        Log.e("TEST", "ERTEST")
+        Log.e("TEST", "MainViewModel의 gotoMapPage")
+        val selcetItem = itemList.value!![position]
         goMapPage()
     }
 

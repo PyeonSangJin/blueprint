@@ -1,6 +1,7 @@
 package com.pysajin.blueprint.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.pysajin.blueprint.model.ItemList
@@ -20,6 +21,7 @@ abstract class BaseViewModel protected constructor(application: Application) : A
     }
 
     fun goMapPage(){
+        Log.e("TEST","BaseViewModel의 goMapPage")
         if(infoActivity.value != ActivityPos.MAP.pos)
             infoActivity.value = ActivityPos.MAP.pos
     }
