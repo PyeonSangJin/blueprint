@@ -1,5 +1,6 @@
 package com.pysajin.blueprint.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -12,19 +13,20 @@ class ItemAdapter(private val layoutId: Int, private val mMainViewModel: MainVie
     RecyclerView.Adapter<ItemAdapter.Holder>(),
     ItemTouchHelperListener {
     override fun onItemMove(from_position: Int, to_position: Int): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.e("INFO", "itemmove")
+        return true
     }
 
     override fun onItemSwipe(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.e("INFO", "itemswipe")
     }
 
     override fun onLeftClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.e("INFO", "leftclick")
     }
 
     override fun onRightClick(position: Int, viewHolder: RecyclerView.ViewHolder) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.e("INFO", "rightclick")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
