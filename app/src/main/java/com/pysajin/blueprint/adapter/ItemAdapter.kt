@@ -14,7 +14,7 @@ class ItemAdapter(private val layoutId: Int, private val mMainViewModel: MainVie
     ItemTouchHelperListener {
     override fun onItemMove(from_position: Int, to_position: Int): Boolean {
         Log.e("INFO", "itemmove")
-        return true
+        return false
     }
 
     override fun onItemSwipe(position: Int) {

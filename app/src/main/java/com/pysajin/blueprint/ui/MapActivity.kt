@@ -2,7 +2,6 @@ package com.pysajin.blueprint.ui
 
 import android.os.Bundle
 import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pysajin.blueprint.BR
@@ -20,8 +19,9 @@ class MapActivity : BaseActivity<ActivityMapBinding>(R.layout.activity_map) {
 
         val data = intent.extras?.getParcelable<ItemList>("datas")
         Log.e("ERRR", "id : ${data?.title}")
-//          url 참고해야함
-//        viewModel = ViewModelProvider(this, MapViewModel).get(MapViewModel::class.java)
+
+        viewModel = ViewModelProvider(this).get(MapViewModel::class.java)
+        viewModel.item = data
         binding.setVariable(BR.mapVM, viewModel)
 
         this.viewModel.infoActivity.observe(this, Observer {

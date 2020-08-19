@@ -14,15 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="#FFFFFF"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            android:onClick="@{()->mainVM.gotoMapPage(position)}">
 
         <RelativeLayout
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/global_top_to_contents"
                 android:layout_marginTop="@dimen/d_4"
-                android:orientation="horizontal"
-                android:onClick="@{()->mainVM.gotoMapPage(position)}">
+                android:orientation="horizontal">
             <TextView
                     android:id="@+id/tvItemTitle"
                     style="@style/TitleBigLine"

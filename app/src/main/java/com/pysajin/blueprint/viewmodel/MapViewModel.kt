@@ -6,4 +6,5 @@ import com.pysajin.blueprint.model.ItemList
 
 class MapViewModel(application: Application) : BaseViewModel(application){
     var item : ItemList? = null
+
 }

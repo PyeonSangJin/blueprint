@@ -6,10 +6,14 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
+import android.util.Log
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import android.view.MotionEvent
+import android.view.View
 import com.pysajin.blueprint.R
+
+
 
 enum class ButtonState {
     GONE,
@@ -30,6 +34,11 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         return makeMovementFlags(dragFlag, swipeFlag)
     }
 
+
+    override fun isLongPressDragEnabled(): Boolean {
+        return true
+    }
+
     override fun onMove(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
@@ -42,10 +51,7 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         listener.onItemSwipe(viewHolder.adapterPosition)
     }
 
-    override fun isLongPressDragEnabled(): Boolean {
-        return true
-    }
-
+    //아이템을 터치하거나 스와이프하거나 뷰에 변화가 생길경우 불러오는 함수
     override fun onChildDraw(
         c: Canvas,
         recyclerView: RecyclerView,
@@ -56,6 +62,7 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         isCurrentlyActive: Boolean
     ) {
         var dx: Float = dX
+        Log.e("ERRRR", "dgdg $dx , $buttonWidth")
         if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
             if (buttonsShowedState != ButtonState.GONE) {
                 if (buttonsShowedState == ButtonState.LEFT_VISIBLE) dx = Math.max(dx, buttonWidth)
@@ -71,14 +78,6 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
 
         currentItemViewHolder = viewHolder
         drawButtons(c, currentItemViewHolder!!)
-    }
-
-    override fun convertToAbsoluteDirection(flags: Int, layoutDirection: Int): Int {
-        if (swipeBack) {
-            swipeBack = false
-            return 0
-        }
-        return super.convertToAbsoluteDirection(flags, layoutDirection)
     }
 
     private fun drawButtons(c: Canvas, viewHolder: RecyclerView.ViewHolder) {
@@ -128,6 +127,15 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         c.drawText(text, button.centerX() - textWidth / 2, button.centerY() + textSize / 2, p)
     }
 
+    override fun convertToAbsoluteDirection(flags: Int, layoutDirection: Int): Int {
+        if (swipeBack) {
+            swipeBack = false
+            return 0
+        }
+        return super.convertToAbsoluteDirection(flags, layoutDirection)
+    }
+
+
     @SuppressLint("ClickableViewAccessibility")
     private fun setTouchListener(
         c: Canvas,
@@ -135,20 +143,21 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         viewHolder: RecyclerView.ViewHolder,
         dX: Float, dY: Float,
         actionState: Int, isCurrentlyActive: Boolean
-    ) = recyclerView.setOnTouchListener { _, event ->
-        swipeBack = event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP
-        if (swipeBack) {
-            if (dX < -buttonWidth)
-                buttonsShowedState = ButtonState.RIGHT_VISIBLE
-            else if (dX > buttonWidth)
-                buttonsShowedState = ButtonState.LEFT_VISIBLE
+    ){
+        recyclerView.setOnTouchListener { _, event ->
+            swipeBack = (event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP)
+            if (swipeBack) {
+                if (dX < -buttonWidth)
+                    buttonsShowedState = ButtonState.RIGHT_VISIBLE
+                else if (dX > buttonWidth) buttonsShowedState = ButtonState.LEFT_VISIBLE
 
-            if (buttonsShowedState != ButtonState.GONE) {
-                setTouchDownListener(c, recyclerView, viewHolder, dY, actionState, isCurrentlyActive)
-                setItemsClickable(recyclerView, false)
+                if (buttonsShowedState != ButtonState.GONE) {
+                    setTouchDownListener(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    setItemsClickable(recyclerView, false)
+                }
             }
+            false
         }
-        false
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -156,12 +165,13 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         c: Canvas,
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
+        dX: Float,
         dY: Float,
         actionState: Int, isCurrentlyActive: Boolean
     ) {
         recyclerView.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
-                setTouchUpListener(c, recyclerView, viewHolder, dY, actionState, isCurrentlyActive)
+                setTouchUpListener(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             }
             false
         }
@@ -172,6 +182,7 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         c: Canvas,
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder,
+        dX: Float,
         dY: Float,
         actionState: Int, isCurrentlyActive: Boolean
     ) {
