@@ -8,7 +8,7 @@ import com.pysajin.blueprint.model.ItemList
 import com.pysajin.blueprint.network.ItemListRepository
 
 abstract class BaseViewModel protected constructor(application: Application) : AndroidViewModel(application){
-    enum class ActivityPos(val pos:Int){MAIN(0), MAP(1)}
+    enum class ActivityPos(val pos:Int){MAIN(0), MAP(1), MAPREGIST(2)}
 
     val infoActivity = MutableLiveData<Int>()
     var selectedItem: ItemList? = null
@@ -26,6 +26,13 @@ abstract class BaseViewModel protected constructor(application: Application) : A
         if(infoActivity.value != ActivityPos.MAP.pos) {
             selectedItem = selected
             infoActivity.value = ActivityPos.MAP.pos
+        }
+    }
+
+    fun goMapRegistPage(){
+        Log.e("Test", "BaseViewModel의 goMapRegistPage")
+        if(infoActivity.value != ActivityPos.MAPREGIST.pos){
+            infoActivity.value = ActivityPos.MAPREGIST.pos
         }
     }
 

@@ -33,6 +33,7 @@
                     android:layout_marginStart="-2dp"
                     android:src="@drawable/ic_plus"
                     android:gravity="center_vertical"
+                    android:onClick="@{()->VM.onPlusClick()}"
                     android:paddingRight="@dimen/d_16"/>
 
         </LinearLayout>

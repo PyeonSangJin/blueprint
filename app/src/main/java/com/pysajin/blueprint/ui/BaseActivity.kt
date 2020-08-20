@@ -8,9 +8,10 @@ import androidx.databinding.ViewDataBinding
 import com.pysajin.blueprint.model.ItemList
 
 abstract class BaseActivity<B : ViewDataBinding>(private val layoutId: Int) : AppCompatActivity() {
-    enum class ActivityPos(val pos:Int){MAIN(0), MAP(1)}
+    enum class ActivityPos(val pos:Int){MAIN(0), MAP(1), MAPREGIST(2)}
 
     protected lateinit var binding: B
+    private var REQUEST_REGIST = 1;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,11 @@ abstract class BaseActivity<B : ViewDataBinding>(private val layoutId: Int) : Ap
                 //intent에 데이터 넣어서 넘기면 됨
                 intent.putExtra("datas", data)
                 startActivity(intent)
+                finish()
+            }
+            ActivityPos.MAPREGIST.pos->{
+                intent = Intent(this, MapRegistActivity::class.java)
+                startActivityForResult(intent, REQUEST_REGIST)
                 finish()
             }
         }

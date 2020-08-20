@@ -104,4 +104,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         compositeDisposable.dispose()
     }
 
+    fun onPlusClick(){
+        goMapRegistPage()
+    }
 }
