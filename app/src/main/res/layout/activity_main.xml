@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.pysajin.blueprint.viewmodel.MainViewModel"/>
-        <variable name="VM" type="MainViewModel"/>
+        <variable name="mainVM" type="MainViewModel"/>
     </data>
 
     <LinearLayout
@@ -33,7 +33,7 @@
                     android:layout_marginStart="-2dp"
                     android:src="@drawable/ic_plus"
                     android:gravity="center_vertical"
-                    android:onClick="@{()->VM.onPlusClick()}"
+                    android:onClick="@{()->mainVM.onPlusClick()}"
                     android:paddingRight="@dimen/d_16"/>
 
         </LinearLayout>
