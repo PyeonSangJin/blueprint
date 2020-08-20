@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.pysajin.blueprint.viewmodel.MainViewModel"/>
-        <variable name="VM" type="MainViewModel"/>
+        <variable name="mainVM" type="MainViewModel"/>
     </data>
 
     <LinearLayout
@@ -24,7 +24,7 @@
                     android:layout_height="@dimen/global_top_to_contents"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d_16"
-                    android:text="@string/select_blueprint"/>
+                    android:text="@{mainVM.getItem(2).title}"/>
 
             <ImageView
                     android:id="@+id/btnPlus"
@@ -33,7 +33,7 @@
                     android:layout_marginStart="-2dp"
                     android:src="@drawable/ic_plus"
                     android:gravity="center_vertical"
-                    android:onClick="@{()->VM.onPlusClick()}"
+                    android:onClick="@{()->mainVM.onPlusClick()}"
                     android:paddingRight="@dimen/d_16"/>
 
         </LinearLayout>

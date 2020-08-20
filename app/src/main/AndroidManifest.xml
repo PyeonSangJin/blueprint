@@ -15,6 +15,7 @@
 
         <activity android:name=".ui.MainActivity"/>
         <activity android:name=".ui.MapActivity"/>
+        <activity android:name=".ui.MapRegistActivity"/>
         <activity android:name=".ui.SplashActivity"
         android:theme="@style/SplashTheme">
             <intent-filter>

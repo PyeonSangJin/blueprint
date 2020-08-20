@@ -105,6 +105,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
     }
 
     fun onPlusClick(){
+        Log.e("ERRRR", "SASDFASDF")
         goMapRegistPage()
     }
 }
