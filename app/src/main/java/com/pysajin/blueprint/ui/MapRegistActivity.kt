@@ -8,13 +8,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pysajin.blueprint.BR
 import com.pysajin.blueprint.R
+import com.pysajin.blueprint.databinding.ActivityMainBinding
 import com.pysajin.blueprint.databinding.ActivityMapRegistBinding
+import com.pysajin.blueprint.fragment.MainFragment
+import com.pysajin.blueprint.viewmodel.MainViewModel
 import com.pysajin.blueprint.viewmodel.MapRegistViewModel
 
 class MapRegistActivity : BaseActivity<ActivityMapRegistBinding>(R.layout.activity_map_regist) {
     private lateinit var viewModel: MapRegistViewModel
-    private lateinit var fragmentManager: FragmentManager
-    private lateinit var transaction: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -26,4 +27,5 @@ class MapRegistActivity : BaseActivity<ActivityMapRegistBinding>(R.layout.activi
             changeActivity(it, data = this.viewModel.selectedItem)
         })
     }
+
 }
