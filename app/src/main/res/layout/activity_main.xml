@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.pysajin.blueprint.viewmodel.MainViewModel"/>
         <variable name="mainVM" type="MainViewModel"/>
@@ -19,12 +19,12 @@
             <TextView
                     android:id="@+id/btnReSearchText"
                     style="@style/TitleBigLine"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="@dimen/global_top_to_contents"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d_16"
-                    android:text="@{mainVM.getItem(2).title}"/>
+                    android:layout_marginStart="@dimen/d_16"
+                    android:text="@string/select_blueprint"/>
 
             <ImageView
                     android:id="@+id/btnPlus"
@@ -34,7 +34,8 @@
                     android:src="@drawable/ic_plus"
                     android:gravity="center_vertical"
                     android:onClick="@{()->mainVM.onPlusClick()}"
-                    android:paddingRight="@dimen/d_16"/>
+                    android:paddingEnd="@dimen/d_16" tools:ignore="RtlSymmetry"
+                    android:contentDescription="@string/select_blueprint"/>
 
         </LinearLayout>
 

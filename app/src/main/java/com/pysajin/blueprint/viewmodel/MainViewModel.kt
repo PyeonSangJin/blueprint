@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.pysajin.blueprint.R
 import com.pysajin.blueprint.adapter.ItemAdapter
 import com.pysajin.blueprint.interfaces.ItemTouchHelperCallback
@@ -15,9 +14,6 @@ import io.reactivex.schedulers.Schedulers
 
 class MainViewModel(application: Application) : BaseViewModel(application) {
     private val compositeDisposable = CompositeDisposable()
-
-    val RecyclerView : RecyclerView = RecyclerView(application)
-
     val itemAdapter = ItemAdapter(R.layout.item_list, this)
     val helper: ItemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(itemAdapter, application.applicationContext))
     var itemList = MutableLiveData<Array<ItemList>>()

@@ -11,7 +11,6 @@ abstract class BaseActivity<B : ViewDataBinding>(private val layoutId: Int) : Ap
     enum class ActivityPos(val pos:Int){MAIN(0), MAP(1), MAPREGIST(2)}
 
     protected lateinit var binding: B
-    private var REQUEST_REGIST = 1;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +37,7 @@ abstract class BaseActivity<B : ViewDataBinding>(private val layoutId: Int) : Ap
             }
             ActivityPos.MAPREGIST.pos->{
                 intent = Intent(this, MapRegistActivity::class.java)
-                startActivityForResult(intent, REQUEST_REGIST)
+                startActivity(intent)
                 finish()
             }
         }

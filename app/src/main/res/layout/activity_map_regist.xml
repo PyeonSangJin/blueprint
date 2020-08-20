@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tool="http://schemas.android.com/tools">
     <data>
         <import type="com.pysajin.blueprint.viewmodel.MapRegistViewModel"/>
         <variable name="mapRegistVM" type="com.pysajin.blueprint.viewmodel.MapRegistViewModel"/>
     </data>
 
     <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
         <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Title : "
-                    android:textSize="50dp"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/title"
+                    android:textSize="50sp">
 
             </TextView>
 
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Type Title..."
-                    android:textSize="20dp"
-                    android:autoSizeTextType="uniform"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:hint="@string/type_title"
+                    android:textSize="20sp"
+                    app:autoSizeTextType="uniform"
+                    tool:ignore="Autofill" android:inputType="text">
 
             </EditText>
 
@@ -44,30 +47,30 @@
         </LinearLayout>
 
         <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Path : "
-                    android:textSize="50dp"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/path"
+                    android:textSize="50sp">
             </TextView>
             <TextView
                     android:id="@+id/pathTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="File path "
-                    android:textSize="30dp"
-                    android:autoSizeTextType="uniform"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/file_path"
+                    android:textSize="30sp"
+                    app:autoSizeTextType="uniform">
             </TextView>
 
         </LinearLayout>
@@ -75,19 +78,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="불러오기"
-                android:textSize="30dp">
+                android:text="@string/call"
+                android:textSize="30sp">
 
         </Button>
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="저장"
-                android:textSize="30dp">
+                android:text="@string/save"
+                android:textSize="30sp">
 
         </Button>
 
     </LinearLayout>
 </layout>
-

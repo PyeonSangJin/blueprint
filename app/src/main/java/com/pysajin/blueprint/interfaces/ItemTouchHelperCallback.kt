@@ -10,7 +10,6 @@ import android.util.Log
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import android.view.MotionEvent
-import android.view.View
 import com.pysajin.blueprint.R
 
 
@@ -186,12 +185,13 @@ class ItemTouchHelperCallback(private var listener: ItemTouchHelperListener, pri
         dY: Float,
         actionState: Int, isCurrentlyActive: Boolean
     ) {
+        val dx: Float = dX * 0f
         recyclerView.setOnTouchListener { _, event ->
             super@ItemTouchHelperCallback.onChildDraw(
                 c,
                 recyclerView,
                 viewHolder,
-                0f,
+                dx,
                 dY,
                 actionState,
                 isCurrentlyActive
